@@ -8,3 +8,5 @@ services:
     environment:
       APP_USER: "tirtaraharja"
       APP_GROUP: "tirtaraharja"
+      APP_UID: 1001
+      APP_GID: 1001
