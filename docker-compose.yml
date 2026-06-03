@@ -1,0 +1,10 @@
+services:
+  app:
+    image: shinsenter/laravel:php8.4-nginx
+    ports:
+      - "8010:80"
+    volumes:
+      - ./:/var/www/html
+    environment:
+      APP_USER: "tirtaraharja"
+      APP_GROUP: "tirtaraharja"
