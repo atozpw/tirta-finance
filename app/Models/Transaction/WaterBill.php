@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Attributes\Connection;
 use Illuminate\Database\Eloquent\Attributes\Fillable;
 use Illuminate\Database\Eloquent\Attributes\Table;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 #[Connection('mariadb-transaction')]
 
@@ -25,5 +26,18 @@ use Illuminate\Database\Eloquent\Model;
 
 class WaterBill extends Model
 {
-    //
+    public function debits(): HasMany
+    {
+        return $this->hasMany(WaterBillDebit::class, 'jrar_jurnal_no');
+    }
+
+    public function credits(): HasMany
+    {
+        return $this->hasMany(WaterBillCredit::class, 'jrar_jurnal_no');
+    }
+
+    public function attachments(): HasMany
+    {
+        return $this->hasMany(WaterBillAttachment::class, 'jrar_jurnal_no');
+    }
 }
